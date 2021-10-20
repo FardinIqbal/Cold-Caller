@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Cold Caller App</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="student_name">Name</string>
+    <string name="buttonRandom">Call Random</string>
+    <string name="buttonLogCalled">Called Log</string>
+    <string name="buttonLogUncalled">Uncalled Log</string>
+
 </resources>
