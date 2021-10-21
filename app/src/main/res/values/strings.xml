@@ -6,5 +6,37 @@
     <string name="buttonRandom">Call Random</string>
     <string name="buttonLogCalled">Called Log</string>
     <string name="buttonLogUncalled">Uncalled Log</string>
+    
+    <string name="aamir_ali">Aamir Ali</string>
+    <string name="adrian_yan">Adrian Yan</string>
+    <string name="alex_aney">Alex Aney</string>
+    <string name="bipra_dey">Bipra Dey</string>
+    <string name="darren_dong">Darren Dong</string>
+    <string name="dennis_wang">Dennis Wang</string>
+    <string name="dhruv_amin">Dhruv Amin</string>
+    <string name="daniel_dultsin">Daniel Dultsin</string>
+    <string name="eden_kodan">Eden Kogan</string>
+    <string name="eli_bui">Eli Bui</string>
+    <string name="elie_belkin">Elie Belkin</string>
+    <string name="evelyn_paskhaver">Evelyn Paskhaver</string>
+    <string name="fardin_iqbal">Fardin Iqbal</string>
+    <string name="jerry_he">Jerry He</string>
+    <string name="kenny_cao">Kenny Cao</string>
+    <string name="marc_rosenberg">Marc Rosenberg</string>
+    <string name="matthew_chen">Matthew Chen</string>
+    <string name="michael_wu">Micheal Wu</string>
+    <string name="ming_lin">Ming Lin</string>
+    <string name="mohammed_ihtisham">Mohammed Ihtisham</string>
+    <string name="noam_canter">Noam Canter</string>
+    <string name="ralf_pacia">Ralf Pacia</string>
+    <string name="samuel_iskhakov">Samuel Iskhakov</string>
+    <string name="sean_kerrigan">Sean Kerrigan</string>
+    <string name="sebastian_marinescu">Sebastian Marinescu</string>
+    <string name="selina_li">Selina Li</string>
+    <string name="shuyue_chen">Shuyue Chen</string>
+    <string name="tanushri_sundaram">Tanushri Sundaram</string>
+    <string name="vasu_patel">Vasu Patel</string>
+    <string name="xinrui_ge">Xinrui Ge</string>
+    <string name="zhian_maysoon">Zhian Maysoon</string>
 
 </resources>
