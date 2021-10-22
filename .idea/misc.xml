@@ -7,6 +7,8 @@
         <entry key="..\:/AppDevelopment/ColdCaller/app/src/main/res/layout/activity_main.xml" value="0.22192028985507245" />
         <entry key="..\:/AppDevelopment/ColdCaller/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.14635416666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.21578992290881674" />
+        <entry key="app/src/main/res/layout/log_activity.xml" value="0.25104166666666666" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.14427083333333332" />
       </map>
     </option>
   </component>
@@ -19,7 +21,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.21578992290881674" />
+        <option name="scale" value="0.25104166666666666" />
       </ProjectState>
     </option>
   </component>
