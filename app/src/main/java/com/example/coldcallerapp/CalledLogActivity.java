@@ -7,12 +7,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class CalledLogActivity extends AppCompatActivity {
 
     private Button mMainMenuButton;
+    private ArrayList<Student> mCalledLog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,8 +30,13 @@ public class CalledLogActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         Bundle args = intent.getBundleExtra("BUNDLE");
-        ArrayList<Student> mCalledLog = (ArrayList<Student>) args.getSerializable("ARRAYLIST");
+        mCalledLog = (ArrayList<Student>) args.getSerializable("ARRAYLIST");
 
+        TextView student = findViewById(R.id.student);
+        student.setText(mCalledLog.get(0).getName());
+
+        TextView dateAndTimeLastCalled = findViewById(R.id.date_and_time_last_called);
+        dateAndTimeLastCalled.setText(mCalledLog.get(0).getLastDateAndTimeCalled());
     }
 
 }

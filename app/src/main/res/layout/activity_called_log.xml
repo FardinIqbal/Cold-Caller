@@ -6,10 +6,25 @@
     android:gravity="center"
     android:orientation="vertical">
     <TextView
+        android:id="@+id/heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="24dp"
         android:text="Called Log"/>
+
+    <TextView
+        android:id="@+id/student"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="24dp"
+        android:text="Student"/>
+
+    <TextView
+        android:id="@+id/date_and_time_last_called"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="24dp"
+        android:text="Date and Time"/>
 
     <Button
         android:id="@+id/main_menu_button"

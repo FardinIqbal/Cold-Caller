@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void updateCurrentStudent() {
         currentStudent = mUncalledLog.get((int) (Math.random() * mUncalledLog.size()));
-        currentStudent.dateAndTimeLastCalled.add(getCurrentDateAndTime());
+        currentStudent.addToLastDateAndTimeCalled(getCurrentDateAndTime());
         mCalledLog.add(currentStudent);
     }
 }

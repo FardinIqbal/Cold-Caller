@@ -7,7 +7,7 @@ public class Student implements Serializable {
     private int name;
     private int image;
     private int callRate;
-    public ArrayList<String> dateAndTimeLastCalled = new ArrayList<String>();
+    private ArrayList<String> dateAndTimeLastCalled = new ArrayList<String>();
 
     public Student(int name, int image) {
         this.name = name;
@@ -15,6 +15,12 @@ public class Student implements Serializable {
         this.callRate = 0;
     }
 
+    public void addToLastDateAndTimeCalled(String dateAndTime) {
+        dateAndTimeLastCalled.add(0, dateAndTime);
+    }
+    public String getLastDateAndTimeCalled() {
+        return dateAndTimeLastCalled.get(0);
+    }
     public int getName() {
         return name;
     }
