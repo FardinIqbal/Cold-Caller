@@ -32,6 +32,10 @@ public class MainActivity extends AppCompatActivity {
         displayStudent();
         displayTime();
 
+        handleCallRandomButton();
+    }
+
+    public void handleCallRandomButton() {
         final Button callRandom = findViewById(R.id.buttonRandom);
         callRandom.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
     public void createStudentList() {
         mStudents.add(new Student(R.string.aamir_ali, R.drawable.aamir_ali));
         mStudents.add(new Student(R.string.alex_aney, R.drawable.alex_aney));
