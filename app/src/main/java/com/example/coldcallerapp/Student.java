@@ -4,9 +4,12 @@ public class Student {
     private int name;
     private int image;
 
+    private int callRate;
+
     public Student(int name, int image) {
         this.name = name;
         this.image = image;
+        this.callRate = 0;
     }
 
     public int getName() {
@@ -23,5 +26,13 @@ public class Student {
 
     public void setImage(int image) {
         this.image = image;
+    }
+
+    public int getCallRate() {
+        return callRate;
+    }
+
+    public void setCallRate(int callRate) {
+        this.callRate = callRate;
     }
 }
