@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button callRandomButton;
     private Button calledLogButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,20 +40,24 @@ public class MainActivity extends AppCompatActivity {
         displayTime();
 
         handleCallRandomButton();
+        handleCalledLogIntent();
 
+
+    }
+
+    public void handleCalledLogIntent() {
         calledLogButton = findViewById(R.id.calledLogButton);
         calledLogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, CalledLogActivity.class);
+                Intent calledLogIntent = new Intent(MainActivity.this, CalledLogActivity.class);
                 Bundle args = new Bundle();
                 args.putSerializable("ARRAYLIST", (Serializable) mCalledLog);
-                intent.putExtra("BUNDLE", args);
-                startActivity(intent);
+                calledLogIntent.putExtra("BUNDLE", args);
+                startActivity(calledLogIntent);
             }
         });
     }
-
     public void handleCallRandomButton() {
         callRandomButton = findViewById(R.id.buttonRandom);
         callRandomButton.setOnClickListener(new View.OnClickListener() {
