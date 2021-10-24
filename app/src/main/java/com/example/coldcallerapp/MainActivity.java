@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         updateCurrentStudent();
         displayStudent();
-        displayTime();
+        displayCurrentDateAndTime();
 
         handleCallRandomButton();
         handleCalledLogIntent();
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 updateCurrentStudent();
                 updateCurrentStudent();
                 displayStudent();
-                displayTime();
+                displayCurrentDateAndTime();
             }
         });
     }
@@ -127,17 +127,20 @@ public class MainActivity extends AppCompatActivity {
         name.setText(currentStudent.getName());
     }
 
-    public void displayTime() {
+    public String getCurrentDateAndTime() {
         Date date = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy hh:mm");
-        String strDate = dateFormat.format(date);
-
+        String strDateAndTime = dateFormat.format(date);
+        return strDateAndTime;
+    }
+    public void displayCurrentDateAndTime() {
         TextView timeTextView = (TextView) findViewById(R.id.timeTextView);
-        timeTextView.setText(strDate);
+        timeTextView.setText(getCurrentDateAndTime());
     }
 
     public void updateCurrentStudent() {
         currentStudent = mUncalledLog.get((int) (Math.random() * mUncalledLog.size()));
+        currentStudent.dateAndTimeLastCalled.add(getCurrentDateAndTime());
         mCalledLog.add(currentStudent);
     }
 }

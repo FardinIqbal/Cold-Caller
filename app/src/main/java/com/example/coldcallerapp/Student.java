@@ -1,12 +1,13 @@
 package com.example.coldcallerapp;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Student implements Serializable {
     private int name;
     private int image;
-
     private int callRate;
+    public ArrayList<String> dateAndTimeLastCalled = new ArrayList<String>();
 
     public Student(int name, int image) {
         this.name = name;
