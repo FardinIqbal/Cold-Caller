@@ -6,21 +6,23 @@ import java.util.ArrayList;
 public class Student implements Serializable {
     private int name;
     private int image;
-    private int callRate;
+    private int callTracker;
     private ArrayList<String> dateAndTimeLastCalled = new ArrayList<String>();
 
     public Student(int name, int image) {
         this.name = name;
         this.image = image;
-        this.callRate = 0;
+        this.callTracker = 0;
     }
 
     public void addToLastDateAndTimeCalled(String dateAndTime) {
         dateAndTimeLastCalled.add(0, dateAndTime);
     }
+
     public String getLastDateAndTimeCalled() {
         return dateAndTimeLastCalled.get(0);
     }
+
     public int getName() {
         return name;
     }
@@ -37,11 +39,11 @@ public class Student implements Serializable {
         this.image = image;
     }
 
-    public int getCallRate() {
-        return callRate;
+    public int getCallTracker() {
+        return callTracker;
     }
 
-    public void setCallRate(int callRate) {
-        this.callRate = callRate;
+    public void setCallTracker(int callRate) {
+        this.callTracker = callRate;
     }
 }

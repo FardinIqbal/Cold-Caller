@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -32,11 +33,17 @@ public class CalledLogActivity extends AppCompatActivity {
         Bundle args = intent.getBundleExtra("BUNDLE");
         mCalledLog = (ArrayList<Student>) args.getSerializable("ARRAYLIST");
 
-        TextView student = findViewById(R.id.student);
+        TextView student = findViewById(R.id.student_name);
         student.setText(mCalledLog.get(0).getName());
+
+        ImageView studentImage = findViewById(R.id.student_image);
+        studentImage.setImageResource(mCalledLog.get(0).getImage());
 
         TextView dateAndTimeLastCalled = findViewById(R.id.date_and_time_last_called);
         dateAndTimeLastCalled.setText(mCalledLog.get(0).getLastDateAndTimeCalled());
+
+        TextView callTracker = findViewById(R.id.call_tracker);
+        callTracker.setText(mCalledLog.get(0).getCallTracker() + "");
     }
 
 }

@@ -133,6 +133,13 @@ public class MainActivity extends AppCompatActivity {
         String strDateAndTime = dateFormat.format(date);
         return strDateAndTime;
     }
+
+    public String getCurrentTime() {
+        Date date = Calendar.getInstance().getTime();
+        DateFormat dateFormat = new SimpleDateFormat("hh:mm");
+        String strTime = dateFormat.format(date);
+        return strTime;
+    }
     public void displayCurrentDateAndTime() {
         TextView timeTextView = (TextView) findViewById(R.id.timeTextView);
         timeTextView.setText(getCurrentDateAndTime());
@@ -140,7 +147,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void updateCurrentStudent() {
         currentStudent = mUncalledLog.get((int) (Math.random() * mUncalledLog.size()));
-        currentStudent.addToLastDateAndTimeCalled(getCurrentDateAndTime());
+        currentStudent.addToLastDateAndTimeCalled(getCurrentTime());
+        currentStudent.setCallTracker(currentStudent.getCallTracker() + 1);
         mCalledLog.add(currentStudent);
+
     }
 }
