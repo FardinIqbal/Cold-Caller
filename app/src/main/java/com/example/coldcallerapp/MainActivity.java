@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button callRandomButton;
     private Button calledLogButton;
+    private Button uncalledLogButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +42,21 @@ public class MainActivity extends AppCompatActivity {
 
         handleCallRandomButton();
         handleCalledLogIntent();
+        handleUncalledLogIntent();
+    }
 
-
+    public  void handleUncalledLogIntent() {
+        uncalledLogButton = findViewById(R.id.uncalled_button_log);
+        uncalledLogButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent uncalledLogIntent = new Intent(MainActivity.this, UncalledLogActivity.class);
+                Bundle args = new Bundle();
+                args.putSerializable("ARRAYLIST", (Serializable) mUncalledLog);
+                uncalledLogIntent.putExtra("BUNDLE", args);
+                startActivity(uncalledLogIntent);
+            }
+        });
     }
 
     public void handleCalledLogIntent() {
@@ -58,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
     public void handleCallRandomButton() {
         callRandomButton = findViewById(R.id.buttonRandom);
         callRandomButton.setOnClickListener(new View.OnClickListener() {
