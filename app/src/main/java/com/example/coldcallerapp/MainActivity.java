@@ -2,6 +2,7 @@ package com.example.coldcallerapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -18,9 +20,13 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
-    public ArrayList<Student> mStudents = new ArrayList<Student>();
+    public ArrayList<Student> mUncalledLog = new ArrayList<Student>();
+    public ArrayList<Student> mCalledLog = new ArrayList<Student>();
+
     public Student currentStudent;
 
+    private Button callRandomButton;
+    private Button calledLogButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,11 +39,23 @@ public class MainActivity extends AppCompatActivity {
         displayTime();
 
         handleCallRandomButton();
+
+        calledLogButton = findViewById(R.id.calledLogButton);
+        calledLogButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, CalledLogActivity.class);
+                Bundle args = new Bundle();
+                args.putSerializable("ARRAYLIST", (Serializable) mCalledLog);
+                intent.putExtra("BUNDLE", args);
+                startActivity(intent);
+            }
+        });
     }
 
     public void handleCallRandomButton() {
-        final Button callRandom = findViewById(R.id.buttonRandom);
-        callRandom.setOnClickListener(new View.OnClickListener() {
+        callRandomButton = findViewById(R.id.buttonRandom);
+        callRandomButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 updateCurrentStudent();
@@ -47,10 +65,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
     public void createStudentList() {
-        mStudents.add(new Student(R.string.aamir_ali, R.drawable.aamir_ali));
-        mStudents.add(new Student(R.string.alex_aney, R.drawable.alex_aney));
-        mStudents.add(new Student(R.string.bipra_dey, R.drawable.bipra_dey));
+        mUncalledLog.add(new Student(R.string.aamir_ali, R.drawable.aamir_ali));
+        mUncalledLog.add(new Student(R.string.alex_aney, R.drawable.alex_aney));
+        mUncalledLog.add(new Student(R.string.bipra_dey, R.drawable.bipra_dey));
     }
 
     public void displayStudent() {
@@ -71,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void updateCurrentStudent() {
-        currentStudent = mStudents.get((int)(Math.random() * mStudents.size()));
+        currentStudent = mUncalledLog.get((int) (Math.random() * mUncalledLog.size()));
+        mCalledLog.add(currentStudent);
     }
 }
