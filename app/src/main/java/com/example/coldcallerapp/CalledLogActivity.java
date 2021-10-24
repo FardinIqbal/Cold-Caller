@@ -4,13 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import java.util.ArrayList;
 
 public class CalledLogActivity extends AppCompatActivity {
 
     private Button mMainMenuButton;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,10 +22,14 @@ public class CalledLogActivity extends AppCompatActivity {
         mMainMenuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(CalledLogActivity.this, MainActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
+
+        Intent intent = getIntent();
+        Bundle args = intent.getBundleExtra("BUNDLE");
+        ArrayList<Student> mCalledLog = (ArrayList<Student>) args.getSerializable("ARRAYLIST");
+
     }
 
 }

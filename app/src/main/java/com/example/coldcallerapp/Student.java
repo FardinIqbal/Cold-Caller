@@ -1,6 +1,8 @@
 package com.example.coldcallerapp;
 
-public class Student {
+import java.io.Serializable;
+
+public class Student implements Serializable {
     private int name;
     private int image;
 
