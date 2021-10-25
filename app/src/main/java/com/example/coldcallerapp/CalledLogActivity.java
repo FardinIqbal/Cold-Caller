@@ -6,8 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -16,6 +18,12 @@ public class CalledLogActivity extends AppCompatActivity {
 
     private Button mMainMenuButton;
     private ArrayList<Student> mCalledLog;
+    private ListView mListView;
+
+    //from the model layout
+    private ImageView studentImage;
+    private TextView student,callTracker,dateAndTimeLastCalled;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +41,14 @@ public class CalledLogActivity extends AppCompatActivity {
         Bundle args = intent.getBundleExtra("BUNDLE");
         mCalledLog = (ArrayList<Student>) args.getSerializable("ARRAYLIST");
 
+        mListView = (ListView) findViewById(R.id.listView);
+        ArrayAdapter adapter = new ArrayAdapter<Student>(
+                this,
+                R.layout.list_view_layout,
+                mCalledLog
+        );
+
+
         TextView student = findViewById(R.id.student_name);
         student.setText(mCalledLog.get(0).getName());
 
@@ -44,6 +60,9 @@ public class CalledLogActivity extends AppCompatActivity {
 
         TextView callTracker = findViewById(R.id.call_tracker);
         callTracker.setText(mCalledLog.get(0).getCallTracker() + "");
+
+        mListView.setAdapter(adapter);
+
     }
 
 }

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/student_image"
+            android:layout_width="105dp"
+            android:layout_height="103dp"
+            android:padding="24dp"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/student_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="Student Name" />
+
+            <TextView
+                android:id="@+id/call_tracker"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="16dp"
+                android:text="Number of times called" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/date_and_time_last_called"
+            android:layout_width="wrap_content"
+            android:layout_height="104dp"
+            android:padding="24dp"
+            android:text="Date and Time" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

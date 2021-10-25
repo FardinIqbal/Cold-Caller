@@ -12,46 +12,14 @@
         android:padding="24dp"
         android:text="Called Log"/>
 
-    <LinearLayout
-        android:id="@+id/student_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/student_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="24dp"
-            android:gravity="center"
-            android:text="Student Name"/>
-
-        <ImageView
-            android:id="@+id/student_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:padding="24dp"
-            tools:srcCompat="@tools:sample/avatars"/>
-
-        <TextView
-            android:id="@+id/date_and_time_last_called"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="24dp"
-            android:text="Date and Time"/>
-
-        <TextView
-            android:id="@+id/call_tracker"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="24dp"
-            android:text="Number of times called"/>
-
-    </LinearLayout>
-
     <Button
         android:id="@+id/main_menu_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Main Menu"/>
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>
