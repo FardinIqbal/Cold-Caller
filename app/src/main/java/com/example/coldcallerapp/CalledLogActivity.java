@@ -48,6 +48,7 @@ public class CalledLogActivity extends AppCompatActivity {
                 mCalledLog
         );
 
+        
 
         TextView student = findViewById(R.id.student_name);
         student.setText(mCalledLog.get(0).getName());
