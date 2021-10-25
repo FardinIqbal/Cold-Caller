@@ -9,6 +9,10 @@ public class Student implements Serializable {
     private int callTracker;
     private ArrayList<String> dateAndTimeLastCalled = new ArrayList<String>();
 
+    public String toString(){
+        return R.id.nameTextView +"";
+    }
+
     public Student(int name, int image) {
         this.name = name;
         this.image = image;

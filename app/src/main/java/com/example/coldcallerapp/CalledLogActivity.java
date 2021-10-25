@@ -41,26 +41,13 @@ public class CalledLogActivity extends AppCompatActivity {
         Bundle args = intent.getBundleExtra("BUNDLE");
         mCalledLog = (ArrayList<Student>) args.getSerializable("ARRAYLIST");
 
-        mListView = (ListView) findViewById(R.id.listView);
+        mListView = (ListView) findViewById(R.id.list_view);
         ArrayAdapter adapter = new ArrayAdapter<Student>(
-                this,
+                CalledLogActivity.this,
                 R.layout.list_view_layout,
                 mCalledLog
         );
-
-        
-
-        TextView student = findViewById(R.id.student_name);
-        student.setText(mCalledLog.get(0).getName());
-
-        ImageView studentImage = findViewById(R.id.student_image);
-        studentImage.setImageResource(mCalledLog.get(0).getImage());
-
-        TextView dateAndTimeLastCalled = findViewById(R.id.date_and_time_last_called);
-        dateAndTimeLastCalled.setText(mCalledLog.get(0).getLastDateAndTimeCalled());
-
-        TextView callTracker = findViewById(R.id.call_tracker);
-        callTracker.setText(mCalledLog.get(0).getCallTracker() + "");
+        mListView.setAdapter(adapter);
 
         mListView.setAdapter(adapter);
 
