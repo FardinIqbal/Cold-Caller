@@ -7,18 +7,29 @@ public class Student implements Serializable {
     private int name;
     private int image;
     private int callTracker;
+    private String fullName;
+
     private ArrayList<String> dateAndTimeLastCalled = new ArrayList<String>();
 
-    public String toString(){
-        return R.id.nameTextView +"";
-    }
-
-    public Student(int name, int image) {
+    public Student(int name, int image, String fullName) {
         this.name = name;
         this.image = image;
+        this.fullName = fullName;
         this.callTracker = 0;
     }
 
+    public String toString() {
+        String space1 = "";
+        String space2 = "                       ";
+        while(fullName.length() + space1.length() <= 35){
+            space1 = space1 + " ";
+        }
+        return fullName
+                + space1
+                + getLastDateAndTimeCalled()
+                + space2
+                + getCallTracker();
+    }
     public void addToLastDateAndTimeCalled(String dateAndTime) {
         dateAndTimeLastCalled.add(0, dateAndTime);
     }
