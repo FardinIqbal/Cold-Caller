@@ -69,7 +69,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/calledLogButton"
+                android:id="@+id/called_log_button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
@@ -77,7 +77,7 @@
                 android:text="@string/buttonLogCalled" />
 
             <Button
-                android:id="@+id/uncalled_button_log"
+                android:id="@+id/uncalled_log_button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"

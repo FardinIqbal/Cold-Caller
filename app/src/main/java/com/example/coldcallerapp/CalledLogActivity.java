@@ -48,9 +48,6 @@ public class CalledLogActivity extends AppCompatActivity {
                 mCalledLog
         );
         mListView.setAdapter(adapter);
-
-        mListView.setAdapter(adapter);
-
     }
 
 }

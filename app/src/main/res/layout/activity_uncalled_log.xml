@@ -4,15 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/all_students">
     <TextView
+        android:id="@+id/heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="24dp"
-        android:text="Uncalled Log"/>
+        android:text="Called Log"/>
+
     <Button
         android:id="@+id/main_menu_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Main Menu"/>
+
+    <ListView
+        android:id="@+id/list_view2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>
