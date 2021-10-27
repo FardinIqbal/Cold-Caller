@@ -21,7 +21,6 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity {
 
     public ArrayList<Student> mAllStudents = new ArrayList<Student>();
-    public ArrayList<Student> mUncalledLog = new ArrayList<Student>(mAllStudents);
     public ArrayList<Student> mCalledLog = new ArrayList<Student>();
 
     public Student currentStudent;
@@ -49,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent calledLogIntent = new Intent(MainActivity.this, UncalledLogActivity.class);
                 Bundle args = new Bundle();
-                args.putSerializable("ARRAYLIST", (Serializable) mUncalledLog);
+                args.putSerializable("ARRAYLIST", (Serializable) mAllStudents);
                 calledLogIntent.putExtra("BUNDLE", args);
                 Log.d("test", "main print: uncqlled " + mAllStudents.toString());
                 startActivity(calledLogIntent);
@@ -155,6 +154,6 @@ public class MainActivity extends AppCompatActivity {
         if (!mCalledLog.contains(currentStudent)) {
             mCalledLog.add(currentStudent);
         }
-        mUncalledLog.remove(currentStudent);
+        mAllStudents.remove(currentStudent);
     }
 }
