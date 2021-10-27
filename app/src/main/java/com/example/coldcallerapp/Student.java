@@ -24,6 +24,9 @@ public class Student implements Serializable {
         while(fullName.length() + space1.length() <= 35){
             space1 = space1 + " ";
         }
+        if (dateAndTimeLastCalled.size() == 0) {
+            return fullName;
+        }
         return fullName
                 + space1
                 + getLastDateAndTimeCalled()

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -26,7 +27,7 @@ public class UncalledLogActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_called_log);
+        setContentView(R.layout.activity_uncalled_log);
 
         mMainMenuButton = findViewById(R.id.main_menu_button);
         mMainMenuButton.setOnClickListener(new View.OnClickListener() {
@@ -39,8 +40,8 @@ public class UncalledLogActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle args = intent.getBundleExtra("BUNDLE");
         mUncalledLog = (ArrayList<Student>) args.getSerializable("ARRAYLIST");
-
-        mListView = (ListView) findViewById(R.id.list_view);
+        Log.d("test", "uncalled print: " + mUncalledLog.toString());
+        mListView = (ListView) findViewById(R.id.list_view2);
         ArrayAdapter adapter = new ArrayAdapter<Student>(
                 UncalledLogActivity.this,
                 R.layout.list_view_layout,
