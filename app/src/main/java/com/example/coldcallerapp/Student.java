@@ -18,6 +18,10 @@ public class Student implements Serializable {
         this.callTracker = 0;
     }
 
+    public String getFullName() {
+        return fullName;
+    }
+
     public String toString() {
         String space1 = "";
         String space2 = "                       ";
@@ -25,7 +29,7 @@ public class Student implements Serializable {
             space1 = space1 + " ";
         }
         if (dateAndTimeLastCalled.size() == 0) {
-            return fullName;
+            return fullName + "                                                       " + callTracker;
         }
         return fullName
                 + space1
