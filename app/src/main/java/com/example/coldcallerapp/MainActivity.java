@@ -21,7 +21,7 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity {
 
     public ArrayList<Student> mAllStudents = new ArrayList<Student>();
-    public ArrayList<Student> mUncalledLog = mAllStudents;
+    public ArrayList<Student> mUncalledLog = new ArrayList<>(mAllStudents);
     public ArrayList<Student> mCalledLog = new ArrayList<Student>();
 
     public Student currentStudent;
@@ -154,6 +154,7 @@ public class MainActivity extends AppCompatActivity {
         }
         currentStudent.addToLastDateAndTimeCalled(getCurrentTime());
         currentStudent.setCallTracker(currentStudent.getCallTracker() + 1);
+        mCalledLog.add(currentStudent);
         if (!mCalledLog.contains(currentStudent)) {
             mCalledLog.add(currentStudent);
         }
