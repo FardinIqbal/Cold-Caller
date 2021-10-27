@@ -26,10 +26,6 @@ public class MainActivity extends AppCompatActivity {
 
     public Student currentStudent;
 
-    private Button callRandomButton;
-    private Button calledLogButton;
-    private Button uncalledLogButton;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,22 +43,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public  void handleUncalledLogIntent() {
-        uncalledLogButton = findViewById(R.id.uncalled_log_button);
+        Button uncalledLogButton = findViewById(R.id.uncalled_log_button);
         uncalledLogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent uncalledLogIntent = new Intent(MainActivity.this, UncalledLogActivity.class);
+                Intent calledLogIntent = new Intent(MainActivity.this, UncalledLogActivity.class);
                 Bundle args = new Bundle();
                 args.putSerializable("ARRAYLIST", (Serializable) mUncalledLog);
-                uncalledLogIntent.putExtra("BUNDLE", args);
-                startActivity(uncalledLogIntent);
+                calledLogIntent.putExtra("BUNDLE", args);
+                startActivity(calledLogIntent);
             }
         });
     }
 
 
     public void handleCalledLogIntent() {
-        calledLogButton = findViewById(R.id.called_log_button);
+        Button calledLogButton = findViewById(R.id.called_log_button);
         calledLogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void handleCallRandomButton() {
-        callRandomButton = findViewById(R.id.buttonRandom);
+        Button callRandomButton = findViewById(R.id.buttonRandom);
         callRandomButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -158,8 +154,6 @@ public class MainActivity extends AppCompatActivity {
         if (!mCalledLog.contains(currentStudent)) {
             mCalledLog.add(currentStudent);
         }
-        if (mUncalledLog.contains(currentStudent)){
-            mUncalledLog.remove(currentStudent);
-        }
+        mUncalledLog.remove(currentStudent);
     }
 }

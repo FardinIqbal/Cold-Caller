@@ -40,10 +40,10 @@ public class UncalledLogActivity extends AppCompatActivity {
         Bundle args = intent.getBundleExtra("BUNDLE");
         mUncalledLog = (ArrayList<Student>) args.getSerializable("ARRAYLIST");
 
-        mListView = (ListView) findViewById(R.id.list_view2);
+        mListView = (ListView) findViewById(R.id.list_view);
         ArrayAdapter adapter = new ArrayAdapter<Student>(
                 UncalledLogActivity.this,
-                R.layout.list_view_layout2,
+                R.layout.list_view_layout,
                 mUncalledLog
         );
         mListView.setAdapter(adapter);
