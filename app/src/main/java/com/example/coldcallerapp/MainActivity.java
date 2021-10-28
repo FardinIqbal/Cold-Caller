@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent calledLogIntent = new Intent(MainActivity.this, UncalledLogActivity.class);
                 Bundle args = new Bundle();
-                args.putSerializable("ARRAYLIST", (Serializable) mAllStudents);
+                args.putSerializable("ARRAYLIST", (Serializable) mUncalledStudents);
                 calledLogIntent.putExtra("BUNDLE", args);
                 startActivity(calledLogIntent);
             }
@@ -197,6 +197,9 @@ public class MainActivity extends AppCompatActivity {
         }
         if (currentStudent.getCallTracker() >= 2) {
             mAllStudents.remove(currentStudent);
+        }
+        if (currentStudent.getCallTracker() >= 1) {
+            mUncalledStudents.remove(currentStudent);
         }
     }
 }
