@@ -48,12 +48,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent calledLogIntent = new Intent(MainActivity.this, UncalledLogActivity.class);
                 Bundle args = new Bundle();
-                args.putSerializable("ARRAYLIST", (Serializable) mUncalledStudents);
+                args.putSerializable("ARRAYLIST", (Serializable) mAllStudents);
                 calledLogIntent.putExtra("BUNDLE", args);
                 startActivity(calledLogIntent);
             }
         });
     }
+
 
     public void handleCalledLogIntent() {
         Button calledLogButton = findViewById(R.id.called_log_button);
@@ -67,15 +68,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(calledLogIntent);
             }
         });
-    }
-
-    public void remove(Student student) {
-        for (Student studentOnList :
-                mAllStudents) {
-            if (studentOnList.getFullName().equals(student.getFullName())){
-                mUncalledStudents.remove(student);
-            }
-        }
     }
 
     public void handleCallRandomButton() {
@@ -185,9 +177,7 @@ public class MainActivity extends AppCompatActivity {
     public void updateCurrentStudent() {
         currentStudent = mAllStudents.get((int) (Math.random() * mAllStudents.size()));
         while (currentStudent.getCallTracker() >= 2) {
-//            ArrayList<Student> possibleStudent = new ArrayList<>();
             currentStudent = mAllStudents.get((int) (Math.random() * mAllStudents.size()));
-
         }
         currentStudent.addToLastDateAndTimeCalled(getCurrentTime());
         currentStudent.setCallTracker(currentStudent.getCallTracker() + 1);
@@ -195,11 +185,12 @@ public class MainActivity extends AppCompatActivity {
         if (!mCalledLog.contains(currentStudent)) {
             mCalledLog.add(currentStudent);
         }
+
         if (currentStudent.getCallTracker() >= 2) {
             mAllStudents.remove(currentStudent);
         }
-        if (currentStudent.getCallTracker() >= 1) {
-            mUncalledStudents.remove(currentStudent);
-        }
+ //       if (currentStudent.getCallTracker() >= 1) {
+  //          mUncalledStudents.remove(currentStudent);
+        //}
     }
 }
