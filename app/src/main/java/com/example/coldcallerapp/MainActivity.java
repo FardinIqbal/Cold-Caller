@@ -20,6 +20,7 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity {
 
     public ArrayList<Student> mAllStudents = new ArrayList<Student>();
+    public ArrayList<Student> mAllStudents0 = new ArrayList<Student>();
     public ArrayList<Student> mUncalledStudents = new ArrayList<Student>();
     public ArrayList<Student> mCalledLog = new ArrayList<Student>();
 
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent calledLogIntent = new Intent(MainActivity.this, UncalledLogActivity.class);
                 Bundle args = new Bundle();
-                args.putSerializable("ARRAYLIST", (Serializable) mAllStudents);
+                args.putSerializable("ARRAYLIST", (Serializable) mUncalledStudents);
                 calledLogIntent.putExtra("BUNDLE", args);
                 startActivity(calledLogIntent);
             }
@@ -197,6 +198,9 @@ public class MainActivity extends AppCompatActivity {
         }
         if (currentStudent.getCallTracker() >= 2) {
             mAllStudents.remove(currentStudent);
+        }
+        if (currentStudent.getCallTracker() >= 1) {
+            mUncalledStudents.remove(currentStudent);
         }
     }
 }
