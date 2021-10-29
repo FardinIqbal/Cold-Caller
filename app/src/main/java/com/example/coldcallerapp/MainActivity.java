@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void updateCurrentStudent() {
-        if ( System.currentTimeMillis() - startTime > 2400000) {
+        if ( System.currentTimeMillis() - startTime > 86400000) {
             resetStudentList();
         }
         currentStudent = mAllStudents.get((int) (Math.random() * mAllStudents.size()));
