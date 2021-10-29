@@ -20,9 +20,8 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity {
 
     public ArrayList<Student> mAllStudents = new ArrayList<Student>();
-    public ArrayList<Student> mUncalledStudents = new ArrayList<Student>();
     public ArrayList<Student> mCalledLog = new ArrayList<Student>();
-
+    public long startTime = System.currentTimeMillis();
     public Student currentStudent;
 
     @Override
@@ -55,7 +54,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
+    public void resetStudentList() {
+        createStudentList();
+    }
     public void handleCalledLogIntent() {
         Button calledLogButton = findViewById(R.id.called_log_button);
         calledLogButton.setOnClickListener(new View.OnClickListener() {
@@ -83,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void createStudentList() {
+        mAllStudents = new ArrayList<Student>();
+        mCalledLog = new ArrayList<Student>();
         mAllStudents.add(new Student(R.string.aamir_ali, R.drawable.aamir_ali, "Aamir Ali"));
         mAllStudents.add(new Student(R.string.alex_aney, R.drawable.alex_aney, "Alex Aney"));
         mAllStudents.add(new Student(R.string.bipra_dey, R.drawable.bipra_dey, "Bipra Dey"));
@@ -113,38 +116,6 @@ public class MainActivity extends AppCompatActivity {
         mAllStudents.add(new Student(R.string.vasu_patel, R.drawable.vasu_patel, "Vasu Patel"));
         mAllStudents.add(new Student(R.string.xinrui_ge, R.drawable.xinrui_ge, "Xinrui Ge"));
         mAllStudents.add(new Student(R.string.zhian_maysoon, R.drawable.zhian_maysoon, "Zhian Maysoon"));
-
-        mUncalledStudents.add(new Student(R.string.aamir_ali, R.drawable.aamir_ali, "Aamir Ali"));
-        mUncalledStudents.add(new Student(R.string.alex_aney, R.drawable.alex_aney, "Alex Aney"));
-        mUncalledStudents.add(new Student(R.string.bipra_dey, R.drawable.bipra_dey, "Bipra Dey"));
-        mUncalledStudents.add(new Student(R.string.daniel_dultsin, R.drawable.daniel_dultsin, "Daniel Dulstin"));
-        mUncalledStudents.add(new Student(R.string.darren_dong, R.drawable.darren_dong, "Darren Dong"));
-        mUncalledStudents.add(new Student(R.string.dennis_wang, R.drawable.dennis_wang, "Dennis Wang"));
-        mUncalledStudents.add(new Student(R.string.dhruv_amin, R.drawable.dhruv_amin, "Dhruv Amin"));
-        mUncalledStudents.add(new Student(R.string.eden_kodan, R.drawable.eden_kogan, "Eden Kodan"));
-        mUncalledStudents.add(new Student(R.string.eli_bui, R.drawable.eli_bui, "Eli Bui"));
-        mUncalledStudents.add(new Student(R.string.elie_belkin, R.drawable.elie_belkin, "Elie Belkin"));
-        mUncalledStudents.add(new Student(R.string.evelyn_paskhaver, R.drawable.evelyn_paskhaver, "Evelyn Paskhaver"));
-        mUncalledStudents.add(new Student(R.string.fardin_iqbal, R.drawable.fardin_iqbal, "Fardin Iqbal"));
-        mUncalledStudents.add(new Student(R.string.jerry_he, R.drawable.jerry_he, "Jerry He"));
-        mUncalledStudents.add(new Student(R.string.kenny_cao, R.drawable.kenny_cao, "Kenny Cao"));
-        mUncalledStudents.add(new Student(R.string.marc_rosenberg, R.drawable.marc_rosenberg, "Marc Rosenberg"));
-        mUncalledStudents.add(new Student(R.string.matthew_chen, R.drawable.matthew_chen, "Matthew Chen"));
-        mUncalledStudents.add(new Student(R.string.michael_wu, R.drawable.michael_wu, "Micheal Wu"));
-        mUncalledStudents.add(new Student(R.string.ming_lin, R.drawable.ming_lin, "Ming Lin"));
-        mUncalledStudents.add(new Student(R.string.mohammed_ihtisham, R.drawable.mohammed_ihtisham, "Mohammed Ihtisham"));
-        mUncalledStudents.add(new Student(R.string.noam_canter, R.drawable.noam_canter, "Noam Canter"));
-        mUncalledStudents.add(new Student(R.string.ralf_pacia, R.drawable.ralf_pacia, "Ralf Pacia"));
-        mUncalledStudents.add(new Student(R.string.samuel_iskhakov, R.drawable.samuel_iskhakov, "Samuel Iskhakov"));
-        mUncalledStudents.add(new Student(R.string.sean_kerrigan, R.drawable.sean_kerrigan, "Seam Kierrigan"));
-        mUncalledStudents.add(new Student(R.string.sebastian_marinescu, R.drawable.sebastian_marinescu, "Sebasian Marinescu"));
-        mUncalledStudents.add(new Student(R.string.selina_li, R.drawable.selina_li, "Selina Li"));
-        mUncalledStudents.add(new Student(R.string.shuyue_chen, R.drawable.shuyue_chen, "Shuyue Chen"));
-        mUncalledStudents.add(new Student(R.string.tanushri_sundaram, R.drawable.tanushri_sundaram, "Tanushri Sundaram"));
-        mUncalledStudents.add(new Student(R.string.vasu_patel, R.drawable.vasu_patel, "Vasu Patel"));
-        mUncalledStudents.add(new Student(R.string.xinrui_ge, R.drawable.xinrui_ge, "Xinrui Ge"));
-        mUncalledStudents.add(new Student(R.string.zhian_maysoon, R.drawable.zhian_maysoon, "Zhian Maysoon"));
-
     }
 
     public void displayStudent() {
@@ -175,6 +146,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void updateCurrentStudent() {
+        if ( System.currentTimeMillis() - startTime > 2400000) {
+            resetStudentList();
+        }
         currentStudent = mAllStudents.get((int) (Math.random() * mAllStudents.size()));
         while (currentStudent.getCallTracker() >= 2) {
             currentStudent = mAllStudents.get((int) (Math.random() * mAllStudents.size()));
@@ -189,8 +163,5 @@ public class MainActivity extends AppCompatActivity {
         if (currentStudent.getCallTracker() >= 2) {
             mAllStudents.remove(currentStudent);
         }
- //       if (currentStudent.getCallTracker() >= 1) {
-  //          mUncalledStudents.remove(currentStudent);
-        //}
     }
 }
