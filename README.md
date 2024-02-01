@@ -20,7 +20,7 @@ https://github.com/FardinIqbal/Cold-Caller/assets/52869603/b27b9df8-6aa0-4403-ba
 ### Prerequisites
 - Android Studio
 - Java Development Kit (JDK)
-- Minimum Android SDK version: (specify your app's minimum SDK version)
+- Android SDK
 
 ### Installation
 1. Clone the repository or download the source code.
@@ -40,14 +40,6 @@ Contributions to the Cold Caller app are welcome. If you have suggestions to imp
 ## Dependencies
 This app relies on the standard Android SDK and Java libraries provided by Android Studio.
 
-## License
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Contact
-For any inquiries or suggestions, please contact us at [Your Contact Information].
-
-## Acknowledgements
-Special thanks to all educators who strive to make their classrooms more engaging and equitable. Your dedication is the inspiration behind this app.
 
 
 
